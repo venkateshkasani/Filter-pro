@@ -1,69 +1,66 @@
-# React + TypeScript + Vite
+# Filterable Virtualized Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A performant React dashboard for large datasets, featuring dynamic multi-filtering, virtualized table rendering, and windowed pagination. Built with Zustand for state management, Tailwind CSS for styling, and Lucide for icons.
 
-Currently, two official plugins are available:
+## Features
+- **Multi-column Filtering:** Filter data by multiple columns with dynamic dropdowns.
+- **Virtualized Table:** Only visible rows are rendered for smooth performance with thousands of rows.
+- **Pagination:** Windowed pagination with sliding page number controls for easy navigation.
+- **Large Dataset Support:** Handles 5,000+ rows efficiently.
+- **Responsive UI:** Built with Tailwind CSS for modern, responsive design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
+- [React](https://react.dev/)
+- [Zustand](https://zustand-demo.pmnd.rs/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
+- TypeScript
 
-## Expanding the ESLint configuration
+## Setup Instructions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+3. **Build for production:**
+   ```bash
+   npm run build
+   ```
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Usage
+- **Filtering:**
+  - Use the dropdowns at the top to filter by any column (e.g., `mod350`, `mod8000`, `mod20002`).
+  - You can select multiple values per filter.
+- **Pagination:**
+  - Use the page number buttons or `<< Prev` / `Next >>` to navigate between pages (100 rows per page).
+  - Only a window of page numbers is shown for easy navigation.
+- **Virtualized Table:**
+  - Only the visible rows are rendered for performance. Scroll within the table to see more rows.
+
+## File Structure
+```
+filterpro/
+├── public/
+├── src/
+│   ├── assets/
+│   │   ├── data.ts         # Large dataset (numbers, mod columns)
+│   │   └── store.ts        # Zustand store, types
+│   ├── App.tsx             # Main dashboard component
+│   ├── App.css             # Custom styles
+│   ├── main.tsx            # React entry point
+│   └── ...
+├── package.json
+├── tailwind.config.js
+├── vite.config.ts
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Credits
+- Inspired by modern dashboard UIs and best practices for large data handling in React.
+- Icons by [Lucide](https://lucide.dev/).
