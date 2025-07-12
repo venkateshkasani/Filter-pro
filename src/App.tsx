@@ -182,7 +182,7 @@ const FilterDashboard = () => {
         </div>
       </div>
       {/* Pagination comp */}
-      <div className="flex justify-center items-center gap-2 mt-4 max-w-[98vw] overflow-x-scroll">
+      <div className="flex justify-center items-center gap-2 mt-4 max-w-[98vw] overflow-hidden">
         <button
           className="px-3 py-1 flex hover:cursor-pointer items-center gap-1 rounded border bg-slate-800 text-gray-100 disabled:opacity-50"
           onClick={handlePrevWindow}
